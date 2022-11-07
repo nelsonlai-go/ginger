@@ -33,31 +33,35 @@ func printHeader() {
 
 func generalHelp() {
 	fmt.Println(`
-~~ Help - General ~~
+Help - General
 
-Development tool for ginger engine framework.
+> Development tool for ginger engine framework.
 
 Usage:
-	ginger [OPTIONS] [COMMAND]
+  ginger [COMMAND] [OPTIONS]
 
 Commands:
-	ginger help - Get help for ginger cli
-	ginger help [COMMAND] - Get help for a specific command
+  help           - get help for ginger cli
+  help [COMMAND] - get help for a specific command
 
-	ginger init - Initialize ginger project
+  init           - initialize ginger project
 	`)
 }
 
 func initHelp() {
 	fmt.Println(`
-~~ Help - Init ~~
+Help - init
 
-Initialize the ginger project.
+> Initialize the ginger project.
 
 Usage:
-	ginger init
+  ginger init [OPTIONS] - initialize ginger project (golang)
+
+Dependencies:
+  - You should install go 1.16 or above
 
 Options:
-	(No options)
+  --mod  (-m) | required | go mod name of the go project
+  --port (-p) | optional | port number of the gin server (default: 5000)
 	`)
 }

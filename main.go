@@ -5,6 +5,7 @@ import (
 
 	"github.com/nelsonlai-go/args"
 	"github.com/nelsonlai-go/ginger/help"
+	_init "github.com/nelsonlai-go/ginger/init"
 )
 
 var arg = args.New()
@@ -18,6 +19,11 @@ func main() {
 	switch command {
 	case "help":
 		help.Help()
+	case "init":
+		_init.InitGingerProject(
+			arg.FlagString("mod", true, "", "m"),
+			arg.FlagString("port", false, "5000", "p"),
+		)
 	default:
 		log.Fatalln("Invalid command")
 	}
