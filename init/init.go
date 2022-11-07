@@ -44,7 +44,7 @@ import (
 func InitGingerProject(mod string, port string) {
 	var pathOfInternal = "internal"
 	createDir(pathOfInternal)
-	for _, dir := range []string{"cron", "handler", "service", "middleware", "mapper", "repo"} {
+	for _, dir := range []string{"app", "service", "mapper", "repo"} {
 		createDirWithGitkeep(pathOfInternal + "/" + dir)
 	}
 	var pathOfModel = pathOfInternal + "/model"
