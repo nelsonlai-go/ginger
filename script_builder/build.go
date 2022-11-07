@@ -8,11 +8,13 @@ import (
 func (b *scriptBuilder) Build(savePath string) {
 	script := "package " + b.Package + "\n\n"
 
-	script += "import (\n"
-	for imp := range b.Imports {
-		script += "\t\"" + imp + "\"\n"
+	if len(b.Imports) > 0 {
+		script += "import (\n"
+		for imp := range b.Imports {
+			script += "\t\"" + imp + "\"\n"
+		}
+		script += ")\n\n"
 	}
-	script += ")\n\n"
 
 	script += b.Body
 
