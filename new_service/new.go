@@ -8,7 +8,7 @@ import (
 	"github.com/nelsonlai-go/ginger/script_builder"
 )
 
-func NewService(name string) {
+func NewService(name string, overwrite bool) {
 	script := script_builder.New("service")
 
 	name = strcase.ToCamel(name)
@@ -25,5 +25,5 @@ func New%s() %s {
 }
 `, interfaceName, implName, interfaceName, interfaceName, implName))
 
-	script.Build(fmt.Sprintf("internal/service/%s.go", strcase.ToSnake(name)))
+	script.Build(fmt.Sprintf("internal/service/%s.go", strcase.ToSnake(name)), overwrite)
 }

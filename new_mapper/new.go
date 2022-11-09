@@ -8,7 +8,7 @@ import (
 	"github.com/nelsonlai-go/ginger/script_builder"
 )
 
-func NewMapper(name string) {
+func NewMapper(name string, overwrite bool) {
 	script := script_builder.New("mapper")
 
 	name = strcase.ToCamel(name)
@@ -25,5 +25,5 @@ func New%s() %s {
 }
 `, interfaceName, implName, interfaceName, interfaceName, implName))
 
-	script.Build(fmt.Sprintf("internal/mapper/%s.go", strcase.ToSnake(name)))
+	script.Build(fmt.Sprintf("internal/mapper/%s.go", strcase.ToSnake(name)), overwrite)
 }

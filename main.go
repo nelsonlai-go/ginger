@@ -30,14 +30,17 @@ func main() {
 	case "new-service":
 		new_service.NewService(
 			arg.FlagString("name", true, "", "n"),
+			arg.FlagBool("overwrite", "o"),
 		)
 	case "new-repo":
 		new_repo.NewRepo(
 			arg.FlagString("name", true, "", "n"),
+			arg.FlagBool("overwrite", "o"),
 		)
 	case "new-mapper":
 		new_mapper.NewMapper(
 			arg.FlagString("name", true, "", "n"),
+			arg.FlagBool("overwrite", "o"),
 		)
 	default:
 		log.Fatalln("Invalid command")

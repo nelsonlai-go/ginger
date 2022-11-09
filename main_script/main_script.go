@@ -30,7 +30,7 @@ func (s *mainScript) Build(savePath string) {
 	)
 	s.Builder.AddBody(s.startScript())
 	s.Builder.AddBody(s.endScript())
-	s.Builder.Build(savePath)
+	s.Builder.Build(savePath, true)
 
 	err := exec.Command("go", "mod", "tidy").Run()
 	if err != nil {

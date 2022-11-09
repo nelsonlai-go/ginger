@@ -3,7 +3,7 @@ package script_builder
 type ScriptBuilder interface {
 	AddImports(imports ...string)
 	AddBody(body string)
-	Build(savePath string)
+	Build(savePath string, overwrite bool)
 }
 
 type scriptBuilder struct {
