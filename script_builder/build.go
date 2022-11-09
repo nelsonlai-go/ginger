@@ -11,8 +11,12 @@ func (b *scriptBuilder) Build(savePath string, overwrite bool) {
 
 	if len(b.Imports) > 0 {
 		script += "import (\n"
-		for imp := range b.Imports {
-			script += "\t\"" + imp + "\"\n"
+		for _, imp := range b.Imports {
+			script += "\t"
+			if imp.Alias != "" {
+				script += imp.Alias + " "
+			}
+			script += "\"" + imp.Path + "\"\n"
 		}
 		script += ")\n\n"
 	}

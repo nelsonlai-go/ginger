@@ -24,10 +24,9 @@ func New(port string) MainScript {
 }
 
 func (s *mainScript) Build(savePath string) {
-	s.Builder.AddImports(
-		"github.com/nelsonlai-go/ginger-engine/ginger",
-		"os",
-	)
+	s.Builder.AddImport("", "os")
+	s.Builder.AddImport("", "github.com/nelsonlai-go/ginger-engine/ginger")
+
 	s.Builder.AddBody(s.startScript())
 	s.Builder.AddBody(s.endScript())
 	s.Builder.Build(savePath, true)
