@@ -1,9 +1,9 @@
 package init
 
 import (
-	"os"
 	"os/exec"
 
+	"github.com/nelsonlai-go/ginger/dir"
 	"github.com/nelsonlai-go/ginger/main_script"
 )
 
@@ -43,16 +43,16 @@ import (
 
 func InitGingerProject(mod string, port string) {
 	var pathOfInternal = "internal"
-	createDir(pathOfInternal)
-	for _, dir := range []string{"app", "service", "mapper", "repo"} {
-		createDirWithGitkeep(pathOfInternal + "/" + dir)
+	dir.CreateDir(pathOfInternal)
+	for _, dirPath := range []string{"app", "service", "mapper", "repo"} {
+		dir.CreateDirWithGitkeep(pathOfInternal + "/" + dirPath)
 	}
 	var pathOfModel = pathOfInternal + "/model"
-	createDir(pathOfModel)
-	for _, dir := range []string{"entity", "request", "response", "dto"} {
-		createDirWithGitkeep(pathOfModel + "/" + dir)
+	dir.CreateDir(pathOfModel)
+	for _, dirPath := range []string{"entity", "request", "response", "dto"} {
+		dir.CreateDirWithGitkeep(pathOfModel + "/" + dirPath)
 	}
-	createDirWithGitkeep("pkg")
+	dir.CreateDirWithGitkeep("pkg")
 
 	initGoMod(mod)
 
@@ -62,24 +62,6 @@ func InitGingerProject(mod string, port string) {
 
 func initGoMod(mod string) {
 	err := exec.Command("go", "mod", "init", mod).Run()
-	if err != nil {
-		panic(err)
-	}
-}
-
-func createDir(path string) {
-	err := os.MkdirAll(path, os.ModePerm)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func createDirWithGitkeep(path string) {
-	err := os.MkdirAll(path, os.ModePerm)
-	if err != nil {
-		panic(err)
-	}
-	err = os.WriteFile(path+"/.gitkeep", []byte(""), os.ModePerm)
 	if err != nil {
 		panic(err)
 	}

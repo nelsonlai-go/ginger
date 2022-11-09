@@ -64,7 +64,7 @@ Help - init
 > Initialize the ginger project.
 
 Usage:
-  ginger init [OPTIONS] - initialize ginger project (golang)
+  ginger init [OPTIONS]
 
 Dependencies:
   - You should install go 1.16 or above
@@ -82,7 +82,7 @@ Help - new-service
 > Create new service template file.
 
 Usage:
-  ginger new-service [OPTIONS] - create new service template file
+  ginger new-service [OPTIONS]
 
 Options:
   --name (-n) | required | name of the service
@@ -96,7 +96,7 @@ Help - new-repo
 > Create new repo template file.
 
 Usage:
-  ginger new-repo [OPTIONS] - create new repo template file
+  ginger new-repo [OPTIONS]
 
 Options:
   --name (-n) | required | name of the repo
@@ -110,7 +110,7 @@ Help - new-mapper
 > Create new mapper template file.
 
 Usage:
-  ginger new-mapper [OPTIONS] - create new mapper template file
+  ginger new-mapper [OPTIONS]
 
 Options:
   --name (-n) | required | name of the mapper
