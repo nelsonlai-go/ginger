@@ -62,6 +62,8 @@ func main() {
 		switch pluginName {
 		case "cors":
 			install.InstallCors()
+		case "ratelimit":
+			install.InstallRateLimit()
 		default:
 			log.Fatalln("Invalid plugin")
 		}

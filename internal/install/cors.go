@@ -13,9 +13,12 @@ func InstallCors() {
 		Path: "github.com/nelsonlai-go/ginger-engine/cors",
 	})
 
-	script.AddImport(&go_script.Import{
-		Path: go_script.GetModName() + "/internal/config",
-	})
+	imp := script.GetImport(go_script.GetModName() + "/internal/config")
+	if imp == nil {
+		script.AddImport(&go_script.Import{
+			Path: go_script.GetModName() + "/internal/config",
+		})
+	}
 
 	if script.GetFunc("corsPlugin()") != nil {
 		panic("cors already installed")
