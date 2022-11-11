@@ -15,10 +15,3 @@ func InitGoMod() {
 		panic(err)
 	}
 }
-
-func TidyGoMod() {
-	err := exec.Command("go", "mod", "tidy").Run()
-	if err != nil {
-		panic(err)
-	}
-}
